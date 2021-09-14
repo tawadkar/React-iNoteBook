@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
 const UserSchema = new Schema({
      name:{
@@ -14,7 +15,7 @@ const UserSchema = new Schema({
         type:String,
         required: true
     },
-    dayte:{
+    date:{
         type: Date,
         required: Date.now
     }
