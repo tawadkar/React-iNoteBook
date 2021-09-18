@@ -5,7 +5,7 @@ import AddNote from "./AddNote";
 
 const Notes = () => {
     const context = useContext(noteContext);
-    const {notes,addNote} = context ;  //De-structuring
+    const {notes} = context ;  //De-structuring
     return (
         <>
         <AddNote/>
