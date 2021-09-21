@@ -35,19 +35,7 @@ const NoteState = (props) => {
       body: JSON.stringify({title,description,tag})                 // body data type must match "Content-Type" header
     });
 
-    const json = response.json();
-    console.log(json)
-    
-    console.log("Adding a new note")
-    const note = {
-      "_id": "6142e7e39b22b6f3c3249747",
-      "user": "6142d8720344786261139d1f",
-      "title": title,
-      "description": description,
-      "tag": tag,
-      "date": "2021-09-16T06:44:51.380Z",
-      "__v": 0
-    };
+    const note = await response.json();
     setNotes(notes.concat(note))   //concat returns and array whereas push updates an array
 
   }
