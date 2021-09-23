@@ -2,34 +2,23 @@ import React, { useContext, useEffect, useState,useRef } from "react";
 import noteContext from "../context/notes/noteContext";
 import Noteitem from "./Noteitem";
 import AddNote from "./AddNote";
-import { useHistory } from 'react-router';
 
 const Notes = (props) => {
     const context = useContext(noteContext);
-    let history  = useHistory();
     const { notes, getNotes,editNote } = context;  //De-structuring
-
     useEffect(() => {
-        if(localStorage.getItem('token')){
-            getNotes()
-        }
-        else{
-            history.push("/login");
-        }
-        
+        getNotes()
         // eslint-disable-next-line
     }, [])
-     
-    const ref = useRef(null)
-    const refClose = useRef(null)
-    const [note, setNote] = useState({id:"",mtitle:"",mdescription:"",mtag:""})
-    
+
     const updateNote = (currentNote) => {
         ref.current.click();
         setNote({id:currentNote._id,mtitle: currentNote.title, mdescription: currentNote.description, mtag: currentNote.tag})
         
     }
-
+    const ref = useRef(null)
+    const refClose = useRef(null)
+    const [note, setNote] = useState({id:"",mtitle:"",mdescription:"",mtag:""})
 
     const handleClick = (e)=>{
        console.log("Updating the note...",note);

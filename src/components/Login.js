@@ -15,18 +15,15 @@ const Login = (props) => {
             },
             body: JSON.stringify({email: credentials.email,password: credentials.password})   
           });
-
         const json =  await response.json()
         console.log(json);
-
         if(json.success){
           //Save the auth token and redirect
           localStorage.setItem('token',json.authtoken);
-          props.showAlert("Logged In Successfully","success")
-          history.push("/");
-          
+           history.push("/");
+           props.showAlert("Logged In Successfully","success");
         }else{
-            props.showAlert("Invalid Details","danger")
+            props.showAlert("Invalid Details","danger");
         }
     }
 
@@ -35,8 +32,7 @@ const Login = (props) => {
         setCredentials({...credentials,[e.target.name]: e.target.value})
     }
     return (
-        <div className="mt-3">  
-            <h2>Login to continue to iNotebook</h2>
+        <div>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="email">Email address</label>
