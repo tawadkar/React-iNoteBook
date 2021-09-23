@@ -2,12 +2,12 @@
 
 import Notes from "./Notes"
 
-const Home = () => {
-
+const Home = (props) => {
+     const  {showAlert} = props; //Fetching showAlert from props
     return (
         <div>
            
-            <Notes/>
+            <Notes showAlert={showAlert}/>
         </div>
     );
 };
