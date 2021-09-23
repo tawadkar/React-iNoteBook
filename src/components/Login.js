@@ -1,11 +1,11 @@
 import React,{useState} from 'react'
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 
 const Login = () => {
      const [credentials,setCredentials] = useState({email:"", password:""})
      let history  = useHistory();
-    const handleSubmit= async (e)=>{
+     const handleSubmit= async (e)=>{
         e.preventDefault();
         const response = await fetch("http://localhost:5000/api/auth/login", {
             method: 'POST',
